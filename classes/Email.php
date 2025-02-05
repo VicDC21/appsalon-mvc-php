@@ -23,7 +23,7 @@ class Email {
             $this->setConfirmationContent();
             $this->mailer->send();
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$this->mailer->ErrorInfo}";
+            throw new Exception($e->getMessage());
         }
     }
     
@@ -33,7 +33,7 @@ class Email {
             $this->setRecuperationContent();
             $this->mailer->send();
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$this->mailer->ErrorInfo}";
+            throw new Exception($e->getMessage());
         }
     }
 
